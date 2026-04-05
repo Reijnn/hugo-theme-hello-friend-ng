@@ -7,7 +7,7 @@
         <main>
             <div>
                 {{ if .Site.Params.Portrait.Path }}
-                <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}" width="{{ .Site.Params.Portrait.MaxWidth }}" height="{{ .Site.Params.Portrait.MaxHeight }}" style="height:auto;display:block;margin:auto" fetchpriority="high" />
+                <img src="{{ .Site.Params.Portrait.Path }}" class="circle" alt="{{ .Site.Params.Portrait.Alt }}" width="{{ .Site.Params.Portrait.MaxWidth }}" height="{{ .Site.Params.Portrait.MaxHeight }}" fetchpriority="high" />
                 {{ end }}
 
                 <h1>{{ .Site.Title }}</h1>
