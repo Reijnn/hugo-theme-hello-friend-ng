@@ -1,6 +1,6 @@
-// ponytail: dark overrides only; Pele's built-in fallbacks are already light
+// --pele-bg must be the real page color: Pele also uses it for text on filled shapes
 @mixin pele-dark {
-  --pele-bg: transparent;
+  --pele-bg: #{$dark-background};
   --pele-fg: #{$dark-color};
   --pele-muted: #{$dark-color-secondary};
   --pele-line: #{$dark-color};
@@ -10,7 +10,7 @@
 }
 
 .diagram {
-  --pele-bg: transparent;
+  --pele-bg: #{$light-background};
   margin: 40px 0;
   overflow-x: auto;
 
@@ -23,6 +23,7 @@
   }
 
   [data-theme=light] & {
+    --pele-bg: #{$light-background};
     --pele-fg: #{$light-color};
     --pele-muted: #{$light-color-secondary};
     --pele-line: #{$light-color};
