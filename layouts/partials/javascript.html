@@ -11,9 +11,10 @@
 {{ end }}
 
 {{ if .IsHome }}
-{{ $twOpts := dict "format" "esm" "minify" true }}
-{{ with resources.Get "js/typewriter-effect.js" | js.Build $twOpts | fingerprint "sha512" }}
-<script type="module" src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+{{/* Inlined to avoid a critical request chain on the home page */}}
+{{ $twOpts := dict "format" "iife" "minify" true }}
+{{ with resources.Get "js/typewriter-effect.js" | js.Build $twOpts }}
+<script>{{ .Content | safeJS }}</script>
 {{ end }}
 {{ end }}
 

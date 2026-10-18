@@ -138,16 +138,25 @@
         <div id="commento"></div>
       {{ end }}
 
-      {{ if .Site.Params.Utterances.Repository }}
-      <script src="https://utteranc.es/client.js"
-              repo="{{ .Site.Params.Utterances.Repository }}"
-              {{ if .Site.Params.Utterances.Label }}label="{{ .Site.Params.Utterances.Label }}"{{ end }}
-              issue-term="{{ .Site.Params.Utterances.IssueTerm }}"
-              theme="{{ .Site.Params.Utterances.Theme }}"
-              crossorigin="anonymous"
-              async>
+      {{ with .Site.Params.Utterances }}{{ if .Repository }}
+      {{/* Pick the utterances theme from the same choice main.js uses; the theme toggle reloads the page */}}
+      <script>
+        (() => {
+          let theme;
+          try { theme = localStorage.getItem("theme"); } catch (_) {}
+          theme = theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          const s = document.createElement("script");
+          s.src = "https://utteranc.es/client.js";
+          s.crossOrigin = "anonymous";
+          s.async = true;
+          s.setAttribute("repo", {{ .Repository }});
+          s.setAttribute("issue-term", {{ .IssueTerm | default "pathname" }});
+          {{ with .Label }}s.setAttribute("label", {{ . }});{{ end }}
+          s.setAttribute("theme", theme === "dark" ? "github-dark" : "github-light");
+          document.currentScript.after(s);
+        })();
       </script>
-      {{ end }}
+      {{ end }}{{ end }}
 
     </main>
   </div>
