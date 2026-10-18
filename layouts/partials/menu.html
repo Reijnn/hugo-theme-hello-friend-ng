@@ -17,21 +17,6 @@
                 <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
             {{ end }}
         {{- end }}
-
-        {{- if .Site.Params.EnableGlobalLanguageMenu }}
-        <ul class="submenu">
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">{{ .Language.Label }}</a>
-                <div class="dropdown-content">
-                    {{- if hugo.IsMultilingual }}
-                        {{ range $.Translations }}
-                            <a title="{{ .Language.Label }}" href="{{ .Permalink }}">{{ .Language.Label }}</a>
-                        {{ end }}
-                    {{- end }}
-                </div>
-            </li>
-        </ul>
-        {{- end }}
     </ul>
 </nav>
 

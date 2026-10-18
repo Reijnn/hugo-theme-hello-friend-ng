@@ -36,11 +36,8 @@ This theme was highly inspired by the [hello-friend](https://github.com/panr/hug
 - An easy way to modify the theme with Hugo tooling
 - Fully responsive
 - Support for audio in posts (thanks to [@talbotp](https://github.com/talbotp))
-- Builtin (enableable/disableable) multilanguage menu
 - Support for social icons
 - Support for sharing buttons
-- Support for [Commento](https://commento.io)
-- Support for [Plausible](https://plausible.io) (thanks to [@Joffcom](https://github.com/Joffcom))
 - Support for [utterances](https://utteranc.es/) comment system
 
 ## How to start
@@ -63,7 +60,6 @@ git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git them
 
 The theme doesn't require any advanced configuration. Just copy the following config file.
 To see all possible configurations, [check the docs](docs/config.md).
-Note: There are more options to configure. Take a look into the `config.toml` in `exampleSite`.
 
 ``` toml
 baseurl      = "localhost"
@@ -87,12 +83,8 @@ pagination.pagerSize     = 10
   # Enable sharing buttons, if you like
   enableSharingButtons = true
   
-  # Show a global language switcher in the navigation bar
-  enableGlobalLanguageMenu = true
-
   # Metadata mostly used in document's head
   description = "My new homepage or blog"
-  keywords = "homepage, blog"
   images = [""]
 
 [taxonomies]
@@ -103,7 +95,6 @@ pagination.pagerSize     = 10
 [languages]
   [languages.en]
     title = "Hello Friend NG"
-    keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
 
