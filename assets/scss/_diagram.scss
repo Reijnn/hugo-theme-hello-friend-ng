@@ -1,16 +1,18 @@
+@use "variables";
+
 // --pele-bg must be the real page color: Pele also uses it for text on filled shapes
 @mixin pele-dark {
-  --pele-bg: #{$dark-background};
-  --pele-fg: #{$dark-color};
-  --pele-muted: #{$dark-color-secondary};
-  --pele-line: #{$dark-color};
-  --pele-surface: #{$dark-background-secondary};
-  --pele-surface-alt: #{$dark-background-header};
-  --pele-border: #{$dark-border-color};
+  --pele-bg: #{variables.$dark-background};
+  --pele-fg: #{variables.$dark-color};
+  --pele-muted: #{variables.$dark-color-secondary};
+  --pele-line: #{variables.$dark-color};
+  --pele-surface: #{variables.$dark-background-secondary};
+  --pele-surface-alt: #{variables.$dark-background-header};
+  --pele-border: #{variables.$dark-border-color};
 }
 
 .diagram {
-  --pele-bg: #{$light-background};
+  --pele-bg: #{variables.$light-background};
   margin: 40px 0;
   overflow-x: auto;
 
@@ -23,12 +25,12 @@
   }
 
   [data-theme=light] & {
-    --pele-bg: #{$light-background};
-    --pele-fg: #{$light-color};
-    --pele-muted: #{$light-color-secondary};
-    --pele-line: #{$light-color};
-    --pele-surface: #{$light-background-secondary};
-    --pele-surface-alt: #{$light-background-header};
-    --pele-border: #{$light-border-color};
+    --pele-bg: #{variables.$light-background};
+    --pele-fg: #{variables.$light-color};
+    --pele-muted: #{variables.$light-color-secondary};
+    --pele-line: #{variables.$light-color};
+    --pele-surface: #{variables.$light-background-secondary};
+    --pele-surface-alt: #{variables.$light-background-header};
+    --pele-border: #{variables.$light-border-color};
   }
 }
