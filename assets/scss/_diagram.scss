@@ -1,0 +1,33 @@
+// ponytail: dark overrides only; Pele's built-in fallbacks are already light
+@mixin pele-dark {
+  --pele-bg: transparent;
+  --pele-fg: #{$dark-color};
+  --pele-muted: #{$dark-color-secondary};
+  --pele-line: #{$dark-color};
+  --pele-surface: #{$dark-background-secondary};
+  --pele-surface-alt: #{$dark-background-header};
+  --pele-border: #{$dark-border-color};
+}
+
+.diagram {
+  --pele-bg: transparent;
+  margin: 40px 0;
+  overflow-x: auto;
+
+  @media (prefers-color-scheme: dark) {
+    @include pele-dark;
+  }
+
+  [data-theme=dark] & {
+    @include pele-dark;
+  }
+
+  [data-theme=light] & {
+    --pele-fg: #{$light-color};
+    --pele-muted: #{$light-color-secondary};
+    --pele-line: #{$light-color};
+    --pele-surface: #{$light-background-secondary};
+    --pele-surface-alt: #{$light-background-header};
+    --pele-border: #{$light-border-color};
+  }
+}
