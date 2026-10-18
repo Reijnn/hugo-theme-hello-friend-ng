@@ -14,7 +14,7 @@
                     </li>
                 </div>
             {{ else }}
-                <li><a href="{{ .URL | relLangURL }}">{{ .Name }}</a></li>
+                <li><a href="{{ .URL | relLangURL }}">{{ or (i18n .Identifier) .Name }}</a></li>
             {{ end }}
         {{- end }}
     </ul>

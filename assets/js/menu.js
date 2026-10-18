@@ -6,9 +6,14 @@ const mobileQuery = getComputedStyle(document.body).getPropertyValue(
   "--phoneWidth"
 );
 const isMobile = () => window.matchMedia(mobileQuery).matches;
+// Phones fire "resize" when the address bar slides away while scrolling, so
+// only reset the menu when the layout actually crosses the phone breakpoint.
+let wasMobile;
 const isMobileMenu = () => {
-  menuTrigger && menuTrigger.classList.toggle("hidden", !isMobile());
-  menu && menu.classList.toggle("hidden", isMobile());
+  if (isMobile() === wasMobile) return;
+  wasMobile = isMobile();
+  menuTrigger && menuTrigger.classList.toggle("hidden", !wasMobile);
+  menu && menu.classList.toggle("hidden", wasMobile);
 };
 
 isMobileMenu();
@@ -20,13 +25,3 @@ menuTrigger &&
   );
 
 window.addEventListener("resize", isMobileMenu);
-
-const language = document.getElementsByTagName('html')[0].lang;
-const logo = document.querySelector(".logo__pathname");
-if(logo){
-  window.onload = () => {
-    let path = window.location.pathname.substring(1);
-    path = path.replace(language+'/','')
-    logo.textContent += path.substring(0,path.indexOf('/'));
-  };
-}

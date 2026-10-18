@@ -45,6 +45,16 @@
   }
 }
 
+// Reset the browser's default button look for the header buttons
+.theme-toggle,
+.menu-trigger {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+
 .theme-toggle {
   display: flex;
   align-items: center;

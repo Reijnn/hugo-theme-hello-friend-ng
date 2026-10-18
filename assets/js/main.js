@@ -6,7 +6,12 @@
  *
  */
 const themeToggle = document.querySelector(".theme-toggle");
-const chosenTheme = window.localStorage && window.localStorage.getItem("theme");
+// Reading localStorage throws when the browser blocks site data; without this
+// guard the error stops the whole bundle, including the mobile menu in menu.js.
+let chosenTheme = null;
+try {
+  chosenTheme = localStorage.getItem("theme");
+} catch (_) {}
 const chosenThemeIsDark = chosenTheme == "dark";
 const chosenThemeIsLight = chosenTheme == "light";
 
@@ -25,16 +30,12 @@ function detectOSColorTheme() {
 
 // Switch the theme.
 function switchTheme(e) {
-  if (chosenThemeIsDark) {
-    localStorage.setItem("theme", "light");
-  } else if (chosenThemeIsLight) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    if (document.documentElement.getAttribute("data-theme") == "dark") {
-      localStorage.setItem("theme", "light");
-    } else {
-      localStorage.setItem("theme", "dark");
-    }
+  const next = document.documentElement.getAttribute("data-theme") == "dark" ? "light" : "dark";
+  try {
+    localStorage.setItem("theme", next);
+  } catch (_) {
+    document.documentElement.setAttribute("data-theme", next);
+    return;
   }
 
   detectOSColorTheme();
@@ -53,5 +54,7 @@ if (themeToggle) {
 
   detectOSColorTheme();
 } else {
-  localStorage.removeItem("theme");
+  try {
+    localStorage.removeItem("theme");
+  } catch (_) {}
 }
