@@ -49,13 +49,3 @@ other = "Menu"
 
 [toggleTheme]
 other = "Donkere modus aan/uit"
-
-# Main menu labels (matched on the menu identifier in hugo.toml)
-[about]
-other = "Over mij"
-
-[posts]
-other = "Berichten"
-
-[projects]
-other = "Projecten"
