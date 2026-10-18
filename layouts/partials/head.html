@@ -35,8 +35,8 @@
 <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- CSS -->
-{{ $opts := dict "targetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" (eq hugo.Environment "development") }}
-{{ with resources.Get "scss/main.scss" | toCSS $opts | minify }}
+{{ $opts := dict "transpiler" "dartsass" "targetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" (eq hugo.Environment "development") }}
+{{ with resources.Get "scss/style.scss" | toCSS $opts | minify }}
   <style>{{ .Content | safeCSS }}</style>
 {{ end }}
 
