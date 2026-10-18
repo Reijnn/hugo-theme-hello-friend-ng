@@ -17,7 +17,6 @@ This theme was highly inspired by the [hello-friend](https://github.com/panr/hug
   - [Built in shortcodes](#built-in-shortcodes)
     - [image](#image)
   - [Code highlighting](#code-highlighting)
-  - [Favicon](#favicon)
   - [Audio Support](#audio-support)
 - [Social Icons](#social-icons)
 - [Known issues](#known-issues)
@@ -59,7 +58,6 @@ git submodule add https://github.com/rhazdon/hugo-theme-hello-friend-ng.git them
 ## How to configure
 
 The theme doesn't require any advanced configuration. Just copy the following config file.
-To see all possible configurations, [check the docs](docs/config.md).
 
 ``` toml
 baseurl      = "localhost"
@@ -160,10 +158,6 @@ By default the theme is using PrismJS to color your code syntax. All you need to
 ```
 </pre>
 
-### Favicon
-
-Check the [docs](docs/favicons.md).
-
 ### Audio Support
 
 You wrote an article and recorded it? Or do you have a special music that you would like to put on a certain article? Then you can do this now without further ado.
@@ -184,7 +178,6 @@ A large variety of social icons are available and can be configured like this:
   url = "<profile_URL>"
 ```
 
-Take a look into this [list](docs/svgs.md) of available icon options. 
 
 If you need another one, just open an issue or create a pull request with your wished icon. :)
 

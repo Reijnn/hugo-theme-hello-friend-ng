@@ -42,3 +42,10 @@ other = "Last updated"
 [pagination]
 newerPosts = "Newer posts"
 olderPosts = "Older posts"
+
+# partials/header.html
+[menu]
+other = "Menu"
+
+[toggleTheme]
+other = "Toggle dark mode"

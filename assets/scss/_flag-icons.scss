@@ -1,10 +1,4 @@
 // ponytail: only the flags for this site's languages (en -> gb, nl -> nl, see data/langFlags.yaml); copy more from flag-icons when adding a language
-.fib {
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat
-}
-
 .fi {
     background-size: contain;
     background-position: 50%;
@@ -17,10 +11,6 @@
 
 .fi:before {
     content: '\00a0'
-}
-
-.fi.fis {
-    width: 1em
 }
 
 .fi-gb {
