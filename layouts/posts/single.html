@@ -86,17 +86,17 @@
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
           {{ if .Site.Params.dateformNumTime }}
-            {{ dateFormat .Site.Params.dateformNumTime .Date.Local }}
+            {{ dateFormat .Site.Params.dateformNumTime .Date }}
           {{ else }}
-            {{ dateFormat "2006-01-02 15:04" .Date.Local }}
+            {{ dateFormat "2006-01-02 15:04" .Date }}
           {{ end }}
 
           {{ if .Lastmod }} 
             {{ if not (eq .Lastmod .Date )}}
               {{ if .Site.Params.dateformNumTime }}
-                ({{ i18n "lastModified" }}: {{ dateFormat .Site.Params.dateformNumTime .Lastmod.Local }})
+                ({{ i18n "lastModified" }}: {{ dateFormat .Site.Params.dateformNumTime .Lastmod }})
               {{ else }} 
-                ({{ i18n "lastModified" }}: {{ dateFormat "2006-01-02 15:04" .Lastmod.Local }})
+                ({{ i18n "lastModified" }}: {{ dateFormat "2006-01-02 15:04" .Lastmod }})
               {{ end }}
             {{ end }}
           {{ end }}
@@ -111,7 +111,7 @@
             </svg>
 
             <a href="{{ .Site.Params.gitUrl -}}{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>
-            @ {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate.Local }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate.Local }}{{ end }}
+            @ {{ if .Site.Params.dateformNum }}{{ dateFormat .Site.Params.dateformNum .GitInfo.AuthorDate }}{{ else }}{{ dateFormat "2006-01-02" .GitInfo.AuthorDate }}{{ end }}
           </p>
         {{- end }}
       </div>
@@ -124,19 +124,6 @@
       {{- end }}
 
       {{ partial "pagination-single.html" . }}
-
-      {{ if .Site.Config.Services.Disqus.Shortname }}
-        {{ if not (eq .Params.Comments "false") }}
-          <div id="comments">
-            {{ template "_internal/disqus.html" . }}
-          </div>
-        {{ end }}
-      {{ end }}
-
-      {{ if .Site.Params.Commento.Url }}
-        <script defer src={{ .Site.Params.Commento.Url }}></script>
-        <div id="commento"></div>
-      {{ end }}
 
       {{ with .Site.Params.Utterances }}{{ if .Repository }}
       {{/* Pick the utterances theme from the same choice main.js uses; the theme toggle reloads the page */}}

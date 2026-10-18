@@ -3,12 +3,6 @@
 {{ $secureJS := slice $main $menu | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha512" }}
 <script type="text/javascript" src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" defer></script>
 
-{{ range $val := $.Site.Params.customJS }}
-    {{ if gt (len $val) 0 }}
-        <script src="{{ $val }}" defer></script>
-    {{ end }}
-{{ end }}
-
 {{ if .IsHome }}
 {{/* Inlined to avoid a critical request chain on the home page */}}
 {{ $twOpts := dict "format" "iife" "minify" true }}
